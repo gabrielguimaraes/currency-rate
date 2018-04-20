@@ -39,7 +39,7 @@ public class CurrencyRateServiceTest {
 		createBasicCurrencyRateEntity(DateTimeUtil.parseStringLocalDateTime("2010-01-01T01:01:01"));
 		CurrencyRate expectedCurrencyRate = createBasicCurrencyRateEntity(DateTimeUtil.parseStringLocalDateTime("2018-04-19T20:00:10"));
 		
-		Optional<CurrencyRate> actualCurrencyRate = currencyRateService.findLatestRateFromEURToUSD();
+		Optional<CurrencyRate> actualCurrencyRate = currencyRateService.findLatestCurrencyRateFromEURToUSD();
 		
 		Assertions.assertThat(actualCurrencyRate.isPresent()).isTrue();
 		Assertions.assertThat(actualCurrencyRate.get().getId()).isEqualTo(expectedCurrencyRate.getId());

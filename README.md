@@ -1,2 +1,5 @@
-# currency-rate
+# Exchange Currency Rate App (currency-rate)
 A simple application responsible for get some EUR to USD frequently allowing to consult by period
+
+
+[Diagrama](img/diagram.png)

@@ -21,7 +21,7 @@ public class CurrencyRateService {
 		this.currencyRateRepository = currencyRateRepository;
 	}
 
-	public Optional<CurrencyRate> findLatestRateFromEURToUSD() {
+	public Optional<CurrencyRate> findLatestCurrencyRateFromEURToUSD() {
 		return currencyRateRepository.findTopByFromCurrencyAndToCurrencyOrderByCreationDateDesc(Currency.EUR,
 				Currency.USD);
 	}

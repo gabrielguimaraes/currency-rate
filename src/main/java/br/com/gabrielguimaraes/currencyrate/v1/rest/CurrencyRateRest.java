@@ -33,7 +33,7 @@ public class CurrencyRateRest {
 
 	@GetMapping(value = "/rates", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public CurrencyRateResponse getLatestCurrencyRateFromEURToUSD() {
-		Optional<CurrencyRate> currencyRateOptional = currencyRateService.findLatestRateFromEURToUSD();
+		Optional<CurrencyRate> currencyRateOptional = currencyRateService.findLatestCurrencyRateFromEURToUSD();
 		if (currencyRateOptional.isPresent()) {
 			return currencyRateResponseConverter.convert(currencyRateOptional.get());
 		}
