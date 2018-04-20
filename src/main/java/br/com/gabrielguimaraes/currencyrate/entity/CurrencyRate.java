@@ -36,7 +36,7 @@ public class CurrencyRate {
 	@NotNull
 	private Currency toCurrency;
 
-	@Column
+	@Column (precision = 9, scale = 6)
 	@NotNull
 	private BigDecimal value;
 

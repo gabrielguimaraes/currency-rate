@@ -34,8 +34,19 @@ public class AccessFreeCurrencyConverterScheduler {
 	public void fetchCurrencyRatesFromFreeCurrencyConverter() {
 		LOG.info("Fetching new rates from FreeCurrencyConverter API");
 		FreeCurrencyConverterResponse currentFromFreeCurrencyConverter = freeCurrencyConverterClient.getCurrentCurrencyRate(Currency.EUR, Currency.USD);
-		CurrencyRate currencyRateConverted = currencyRateConverter.convert(currentFromFreeCurrencyConverter);
+		CurrencyRate currencyRateConverted = convertToCurrencyRate(currentFromFreeCurrencyConverter);
+		saveIntoRepository(currencyRateConverted);
+	}
+
+
+	public void saveIntoRepository(CurrencyRate currencyRateConverted) {
 		currencyRateService.save(currencyRateConverted);
+	}
+
+
+	public CurrencyRate convertToCurrencyRate(FreeCurrencyConverterResponse currentFromFreeCurrencyConverter) {
+		CurrencyRate currencyRateConverted = currencyRateConverter.convert(currentFromFreeCurrencyConverter);
+		return currencyRateConverted;
 	}
 
 }
